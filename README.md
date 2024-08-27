@@ -18,7 +18,6 @@
 </settings>
 ```
 2. Java 代码比较多，可以考虑 像html,css,js 一样使用两个空格的缩进，让代码更美观，开源库 playwright-java 就是两个空格的缩进
-3. 创建一个 Spring Boot 项目。在 `https://start.spring.io/` 创建一个 Web 项目，依赖搜索 Web，选择 `Spring Web` 依赖 `Build web, including RESTful, applications using Spring MVC. Uses Apache Tomcat as the default embedded container.` `https://spring.io/quickstart`
-   静态资源 `Static resources, including HTML and JavaScript and CSS`，直接放 `resources/static` 目录，或 `resources/public`。 `index.html` 比较特殊，会被当做 `a "welcome page"` `http://localhost:8080/`
+3. 创建一个 Spring Boot 项目。在 `https://start.spring.io/` 创建一个 Web 项目，依赖搜索 Web，选择 `Spring Web` 依赖 `Build web, including RESTful, applications using Spring MVC. Uses Apache Tomcat as the default embedded container.` `https://spring.io/quickstart`。静态资源 `Static resources, including HTML and JavaScript and CSS`，直接放 `resources/static` 目录，或 `resources/public`。 `index.html` 比较特殊，会被当做 `a "welcome page"` `http://localhost:8080/`，貌似不需要 `Spring Boot DevTools`，只需 `Spring Web` 即可
 5. 创建一个 使用模板引擎的 Spring Boot 项目， `https://start.spring.io/` 添加 `Spring Web` `Thymeleaf` (Spring Boot 官方推荐的模板引擎 /taɪm li:f/) `Spring Boot DevTools` (主要用来热部署，发现代码有改动，自动重启应用 
 `Provides fast application restarts, LiveReload, and configurations for enhanced development experience.`) `https://spring.io/guides/gs/serving-web-content`
