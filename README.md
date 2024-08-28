@@ -25,3 +25,5 @@
 6. IDEA maven 包 没有文档的问题 -> 打开 Maven 面板，点击 下载 -> 点击 下载 文档 即可
 7. Maven 项目 包名不知道怎么写，可以写成项目名 例如 项目名是 web ，那么包名也叫 web
 8. Spring Boot 修改服务器端口 `application.properties` `server.port=80`
+9. 获取环境变量 `System.getenv("JAVA_HOME")`
+10. 
