@@ -23,3 +23,5 @@
 5. 创建一个 使用模板引擎的 Spring Boot 项目， `https://start.spring.io/` 添加 `Spring Web` `Thymeleaf` (Spring Boot 官方推荐的模板引擎 /taɪm li:f/) `Spring Boot DevTools` (主要用来热部署，发现代码有改动，自动重启应用 
 `Provides fast application restarts, LiveReload, and configurations for enhanced development experience.`) `https://spring.io/guides/gs/serving-web-content`
 6. IDEA maven 包 没有文档的问题 -> 打开 Maven 面板，点击 下载 -> 点击 下载 文档 即可
+7. Maven 项目 包名不知道怎么写，可以写成项目名 例如 项目名是 web ，那么包名也叫 web
+8. Spring Boot 修改服务器端口 `application.properties` `server.port=80`
