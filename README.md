@@ -22,3 +22,4 @@
 4. 由于启动前需要编译的原因，而且是编译都指定的另一个目录，所以 `Spring Boot` 静态资源 `resources/static` 有改动，需要重启应用才能生效，增删改都一样，可以用  `Spring Boot DevTools` 优化，但默认如此
 5. 创建一个 使用模板引擎的 Spring Boot 项目， `https://start.spring.io/` 添加 `Spring Web` `Thymeleaf` (Spring Boot 官方推荐的模板引擎 /taɪm li:f/) `Spring Boot DevTools` (主要用来热部署，发现代码有改动，自动重启应用 
 `Provides fast application restarts, LiveReload, and configurations for enhanced development experience.`) `https://spring.io/guides/gs/serving-web-content`
+6. IDEA maven 包 没有文档的问题 -> 打开 Maven 面板，点击 下载 -> 点击 下载 文档 即可
