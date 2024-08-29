@@ -40,4 +40,4 @@
 3. Advanced Settings 勾选 Allow auto-make start even if developed application is currently running （这样第2步，运行中的也会生效）
 默认好像延迟比较大，但这样不会消耗太多机器资源 Ctrl+Alt+Shift+/ 的 Register 应该可以把延迟调小   
 ```
-12. 
+12. （暂未看到其他项目这样用）Spring Boot 很多命名太长太繁琐，建议不是核心的单词都用缩写，例如 `WebApplication` -> `WebApp`，`UserController` -> `UserCtl`，`UserService` -> `UserSrv`，包名也是 `controller` -> `ctl` 这样更美观，把重要的信息突显，不重要的信息不突显，impl 就是个例子，多用3个或4个字母的缩写，不是重要的信息
