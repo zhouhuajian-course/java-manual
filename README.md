@@ -55,5 +55,6 @@ Options:   省略其他选项，需要时，补上
  -q,--quiet                              Quiet output - only show errors         安静输出 只输出错误信息
  -v,--version                            Display version information             显示版本信息
  -V,--show-version                       Display version information             显示版本信息 不停止构建项目
-                                         WITHOUT stopping build 
+                                         WITHOUT stopping build
+14. `exec:java -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args="install --help"`，到代码中 args 会成为 main 方法的 args，也就是 `args 是字符串数组 ["install", "--help"]`
 ```
