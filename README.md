@@ -41,3 +41,19 @@
 默认好像延迟比较大，但这样不会消耗太多机器资源 Ctrl+Alt+Shift+/ 的 Register 应该可以把延迟调小   
 ```
 12. （暂未看到其他项目这样用）Spring Boot 很多命名太长太繁琐，建议不是核心的单词都用缩写，例如 `WebApplication` -> `WebApp`，`UserController` -> `UserCtl`，`UserService` -> `UserSrv`，包名也是 `controller` -> `ctl` 这样更美观，把重要的信息突显，不重要的信息不突显，impl 就是个例子，多用3个或4个字母的缩写，不是重要的信息
+13. mvn 命令 `goal(s)` `phase(s)` 省略了其他选项，需要时补上，很多选项，需要在有 pom.xml 的目录里执行
+```cmd
+> mvn -h
+
+usage: mvn [options] [<goal(s)>] [<phase(s)>]     
+
+Options:   省略其他选项，需要时，补上
+
+ -D,--define <arg>                       Define a user property                  定义 pom.xml 的用户属性 注意后面有个空格 按照这文档 加上空格更规范
+ -e,--errors                             Produce execution error messages
+ -h,--help                               Display help information                显示帮助信息
+ -q,--quiet                              Quiet output - only show errors         安静输出 只输出错误信息
+ -v,--version                            Display version information             显示版本信息
+ -V,--show-version                       Display version information             显示版本信息 不停止构建项目
+                                         WITHOUT stopping build 
+```
