@@ -26,4 +26,18 @@
 7. Maven 项目 包名不知道怎么写，可以写成项目名 例如 项目名是 web ，那么包名也叫 web
 8. Spring Boot 修改服务器端口 `application.properties` `server.port=80`
 9. 获取环境变量 `System.getenv("JAVA_HOME")`
-10. 
+10. Spring 是一个生态体系或技术体系，但一般大家提 Spring 可能是指 Spring Framework，因为这是整个 Spring 生态的基石。其他 Spring Boot、Spring Data、Spring Security 等，都是基于这个 Spring Framework 开发起来的框架
+11. Spring Boot 热部署 IDEA
+```text
+1. pom.xml 加依赖
+<dependency>
+  <groupId>org.springframework.boot</groupId>
+  <artifactId>spring-boot-devtools</artifactId>
+  <scope>runtime</scope>
+  <optional>true</optional>
+</dependency>
+2. Compiler 勾选 Build project automatically （没运行、没调试才生效）
+3. Advanced Settings 勾选 Allow auto-make start even if developed application is currently running （这样第2步，运行中的也会生效）
+默认好像延迟比较大，但这样不会消耗太多机器资源 Ctrl+Alt+Shift+/ 的 Register 应该可以把延迟调小   
+```
+12. 
