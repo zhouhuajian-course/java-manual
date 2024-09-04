@@ -58,5 +58,5 @@ Options:   省略其他选项，需要时，补上
                                          WITHOUT stopping build
 ```
 14. `exec:java -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args="install --help"`，到代码中 args 会成为 main 方法的 args，也就是 `args 是字符串数组 ["install", "--help"]`
-15. Spring Boot @RestController 不一定要写 RESTful 接口，写普通接口也可以，@Controller 尽量返回的就是模板，严格按照 MVC 模式，Service 如果业务简单，不需要一定要 使用 接口和 impl 的方式，需要多种实现方式时，才用这种设计方式，例如 翻译接口，要翻译成 英语、法语、德语等，一个接口，多个实现，其他尽量别用接口、实现的方式，会让项目更臃肿
+15. Spring Boot `@RestController` 不一定要写 RESTful 接口，写普通接口也可以，`@Controller` 尽量返回的就是模板，严格按照 `MVC` 模式，`Service` 如果业务简单，不需要一定要 使用 接口和 impl 的方式，需要多种实现方式时，才用这种设计方式，例如 翻译接口，要翻译成 英语、法语、德语等，一个接口，多个实现，其他尽量别用接口、实现的方式，会让项目更臃肿
 16. Spring Boot `Jar` 包打包方式的推荐的方式，内嵌 Servlet 容器，例如 Tomcat，`War` 包打包方式不太推荐，是比较传统的打包方式
