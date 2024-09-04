@@ -74,3 +74,4 @@ Options:   省略其他选项，需要时，补上
     // ...
   }
 ```
+18. 判断是否是 Windows 系统 `System.getProperty("os.name").toLowerCase().contains("windows")`
