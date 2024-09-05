@@ -75,3 +75,8 @@ Options:   省略其他选项，需要时，补上
   }
 ```
 18. 判断是否是 Windows 系统 `System.getProperty("os.name").toLowerCase().contains("windows")`
+19. 创建临时目录 `java.nio.file.Files#createTempDirectory(java.lang.String, java.nio.file.attribute.FileAttribute<?>...)`
+```
+// C:\Users\ZHOUHU~1\AppData\Local\Temp\7523101765255010963 
+// C:\Users\ZHOUHU~1\AppData\Local\Temp\playwright-java-7523101765255010963 提供前缀
+```
