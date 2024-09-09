@@ -40,7 +40,7 @@
 3. Advanced Settings 勾选 Allow auto-make start even if developed application is currently running （这样第2步，运行中的也会生效）
 默认好像延迟比较大，但这样不会消耗太多机器资源 Ctrl+Alt+Shift+/ 的 Register 应该可以把延迟调小   
 ```
-12. （暂未看到其他项目这样用）Spring Boot 很多命名太长太繁琐，建议不是核心的单词都用缩写，例如 `WebApplication` -> `WebApp`，`UserController` -> `UserCtl`，`UserService` -> `UserSrv`，包名也是 `controller` -> `ctl` 这样更美观，把重要的信息突显，不重要的信息不突显，impl 就是个例子，多用3个或4个字母的缩写，不是重要的信息
+12. 经管名称长，无所谓，可以多写名称长的命名，但不建议 fs 这种缩写（暂未看到其他项目这样用）~~Spring Boot 很多命名太长太繁琐，建议不是核心的单词都用缩写，例如 `WebApplication` -> `WebApp`，`UserController` -> `UserCtl`，`UserService` -> `UserSrv`，包名也是 `controller` -> `ctl` 这样更美观，把重要的信息突显，不重要的信息不突显，impl 就是个例子，多用3个或4个字母的缩写，不是重要的信息~~
 13. mvn 命令 `goal(s)` `phase(s)` 省略了其他选项，需要时补上，很多选项，需要在有 pom.xml 的目录里执行
 ```cmd
 > mvn -h
@@ -80,3 +80,4 @@ Options:   省略其他选项，需要时，补上
 // C:\Users\ZHOUHU~1\AppData\Local\Temp\7523101765255010963 
 // C:\Users\ZHOUHU~1\AppData\Local\Temp\playwright-java-7523101765255010963 提供前缀
 ```
+20. Spring Boot 控制器 类和方法 定义 都加 public。先写类，再写注解；先写方法，再写注解；先写参数，再写注解。
