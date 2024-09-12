@@ -108,4 +108,12 @@ public class Test {
     System.out.println(friends);
   }
 }
+/*
+Lily Tom Lucy
+[Lily, Tom, Lucy]
+Joe Trump Lucy
+[Joe, Trump, Lucy]
+
+[Harris, Tina, Mike]
+*/
 ```
