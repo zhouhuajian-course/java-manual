@@ -82,24 +82,30 @@ Options:   省略其他选项，需要时，补上
 ```
 20. Spring Boot 控制器 类和方法 定义 都加 public。先写类，再写注解；先写方法，再写注解；先写参数，再写注解。
 21. `Arrays`数组工具类，`Arrays.asList()` 可以方便把数组转成列表，数组修改，列表也会跟着修改，列表修改，数组也会跟着修改，但是不允许做修改 size 的操作，会抛 `UnsupportedOperationException`；另外这方法，还可提供多个元素，方便的生成 fixed-size 的列表，不是使用数组，而是一次性提供多个元素。当不需要添加或删除元素时，使用这个`Arrays.asList()`比较方便；当需要添加或删除元素时，使用`new java.util.ArrayList()`，一个一个添加元素。
+    用`Arrays.toString()`可以方便打印数组。
 ```java
 import java.util.Arrays;
 import java.util.List;
 
+public class Test {
+  
 public class Test {
   public static void main(String[] args) {
     // 1. 把数组转成固定大小的列表
     String[] names = {"Lily", "Tom", "Lucy"};
     List<String> nameList = Arrays.asList(names);
 
-    System.out.println(names[0] + " " + names[1] + " " + names[2]);
+    // System.out.println(names[0] + " " + names[1] + " " + names[2]);
+    System.out.println(Arrays.toString(names));
     System.out.println(nameList);
 
     names[0] = "Joe";
     nameList.set(1, "Trump");
 
-    System.out.println(names[0] + " " + names[1] + " " + names[2]);
+    // System.out.println(names[0] + " " + names[1] + " " + names[2]);
+    System.out.println(Arrays.toString(names));
     System.out.println(nameList);
+    
     // 2. 提供多个元素 创建 固定大小的列表
     List<String> friends = Arrays.asList("Harris", "Tina", "Mike");
     // UnsupportedOperationException
@@ -108,10 +114,11 @@ public class Test {
     System.out.println(friends);
   }
 }
+}
 /*
-Lily Tom Lucy
 [Lily, Tom, Lucy]
-Joe Trump Lucy
+[Lily, Tom, Lucy]
+[Joe, Trump, Lucy]
 [Joe, Trump, Lucy]
 
 [Harris, Tina, Mike]
