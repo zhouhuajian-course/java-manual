@@ -124,3 +124,5 @@ public class Test {
 [Harris, Tina, Mike]
 */
 ```
+22. Spring Boot 重定向 `redirect:/...` `redirect:http://...` `https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-servlet/viewresolver.html#mvc-redirecting-redirect-prefix`
+23. 遍历一般用`for-each loop` `for-each 循环`，需要索引时，用`for loop` `for statement` `for 循环`
