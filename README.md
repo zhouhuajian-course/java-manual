@@ -125,4 +125,5 @@ public class Test {
 */
 ```
 22. Spring Boot 重定向 `redirect:/...` `redirect:http://...` `https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-servlet/viewresolver.html#mvc-redirecting-redirect-prefix`
-23. 遍历一般用`for-each loop` `for-each 循环`，需要索引时，用`for loop` `for statement` `for 循环`
+23. 遍历一般用`for-each loop` `for-each 循环` 或者叫 `Enhanced For` 增强的for循环，需要索引时，用`for loop` `for statement` `for 循环`，`https://docs.oracle.com/javase/tutorial/java/nutsandbolts/for.html` `https://docs.oracle.com/javase/8/docs/technotes/guides/language/foreach.html`
+24. `try-with-resources statement 语句` 是一种 `try statement 语句`，`https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html` `The try-with-resources statement is a try statement that declares one or more resources. A resource is an object that must be closed after the program is finished with it. The try-with-resources statement ensures that each resource is closed at the end of the statement. Any object that implements java.lang.AutoCloseable, which includes all objects which implement java.io.Closeable, can be used as a resource.` 
