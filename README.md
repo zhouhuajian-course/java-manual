@@ -153,7 +153,7 @@ public class TestController {
   }
 }
 ```
-26. Spring Boot 获取表单数据，推荐使用注解、参数注入的方式，而不是 HttpServletRequest
+26. Spring Boot 获取表单数据，推荐使用注解、参数注入的方式，而不是 HttpServletRequest，当然可以的话，封装成对象的方式，也是推荐的
 ```html
 <!DOCTYPE html>
 <html lang="en">
