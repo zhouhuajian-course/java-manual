@@ -127,7 +127,7 @@ public class Test {
 22. Spring Boot 重定向 `redirect:/...` `redirect:http://...` `https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-servlet/viewresolver.html#mvc-redirecting-redirect-prefix`
 23. 遍历一般用`for-each loop` `for-each 循环` 或者叫 `Enhanced For` 增强的for循环，需要索2引时，用`for loop` `for statement` `for 循环`，`https://docs.oracle.com/javase/tutorial/java/nutsandbolts/for.html` `https://docs.oracle.com/javase/8/docs/technotes/guides/language/foreach.html`
 24. `try-with-resources statement 语句` 是一种 `try statement 语句`，`https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html` `The try-with-resources statement is a try statement that declares one or more resources. A resource is an object that must be closed after the program is finished with it. The try-with-resources statement ensures that each resource is closed at the end of the statement. Any object that implements java.lang.AutoCloseable, which includes all objects which implement java.io.Closeable, can be used as a resource.` 
-25. Spring Boot 获取 Cookie
+25. Spring Boot 获取 Cookie，也可使用`@CookieValue`注解获取，推荐使用注解，而不是HttpServletRequest的方式获取
 ```java
 package web.controller;
 
@@ -150,6 +150,118 @@ public class TestController {
       System.out.println(cookie.getValue());
     }
     return Arrays.toString(cookies);
+  }
+}
+```
+26. Spring Boot 获取表单数据，推荐使用注解、参数注入的方式，而不是 HttpServletRequest
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>个人资料</title>
+</head>
+<body>
+  <form action="/profile" method="post" enctype="multipart/form-data">
+    <div>姓名：<input type="text" name="name" /></div>
+    <div>性别：<input type="radio" name="gender" value="男" />男
+              <input type="radio" name="gender" value="女" />女
+    </div>
+    <div>语言：<input type="checkbox" name="languages" value="汉语" />汉语
+              <input type="checkbox" name="languages" value="英语" />英语
+    </div>
+    <div>生日：<input type="date" name="birthday" /></div>
+    <div>颜色：<input type="color" name="color" /></div>
+    <div>范围：<input type="range" name="range" min="0" value="0" max="100" /></div>
+    <div>头像：<input type="file" name="avatar" /></div>
+    <div>学校：<select name="school">
+                <option value="">请选择</option>
+                <option value="小学">小学</option>
+                <option value="初中">初中</option>
+                <option value="高中">高中</option>
+              </select>
+    </div>
+    <div>简介：<textarea name="intro"></textarea></div>
+    <div>照片：<input type="file" name="photos" multiple /></div>
+    <div><button type="submit">保存</button></div>
+  </form>
+</body>
+</html>
+```
+```java
+package web.controller;
+
+import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.web.multipart.MultipartRequest;
+
+import java.io.IOException;
+import java.nio.file.Path;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+@Controller
+public class ProfileController {
+
+  @GetMapping("/profile")
+  public String profile() {
+    return "profile";
+  }
+
+  @PostMapping("/profile")
+  public String profile(
+    @RequestParam String name,
+    @RequestParam String gender,
+    @RequestParam String[] languages,
+    @RequestParam String birthday,
+    @RequestParam String color,
+    @RequestParam String range,
+    @RequestParam MultipartFile avatar,
+    @RequestParam String school,
+    @RequestParam String intro,
+    @RequestParam MultipartFile[] photos
+  ) throws IOException {
+    System.out.println("姓名：" + name);
+    System.out.println("性别：" + gender);
+    System.out.println("语言：" + Arrays.toString(languages));
+    System.out.println("生日：" + birthday);
+    System.out.println("颜色：" + color);
+    System.out.println("范围：" + range);
+    System.out.println("头像：" + avatar.getOriginalFilename() + " " + avatar.getSize());
+    System.out.println("学校：" + school);
+    System.out.println("简介：" + intro);
+    System.out.println("图片：");
+    for (MultipartFile photo : photos) {
+      System.out.println("      " + photo.getOriginalFilename() + " " + photo.getSize());
+    }
+    // avatar.transferTo(Path.of("learn/avatar.svg"));
+    return "redirect:/profile";
+  }
+
+  @PostMapping("/profile2")
+  public String profile(HttpServletRequest req)
+  {
+    MultipartHttpServletRequest request = (MultipartHttpServletRequest) req;
+    System.out.println("姓名：" + request.getParameter("name"));
+    System.out.println("性别：" + request.getParameter("gender"));
+    System.out.println("语言：" + Arrays.toString(request.getParameterValues("languages")));
+    System.out.println("生日：" + request.getParameter("birthday"));
+    System.out.println("颜色：" + request.getParameter("color"));
+    System.out.println("范围：" + request.getParameter("range"));
+    System.out.println("头像：" + request.getFile("avatar").getOriginalFilename() + " " + request.getFile("avatar").getSize());
+    System.out.println("学校：" + request.getParameter("school"));
+    System.out.println("简介：" + request.getParameter("intro"));
+    System.out.println("照片：");
+    List<MultipartFile> photos = request.getFiles("photos");
+    for (MultipartFile photo : photos) {
+      System.out.println("      " + photo.getOriginalFilename() + " " + photo.getSize());
+    }
+    return "redirect:/profile";
   }
 }
 ```
