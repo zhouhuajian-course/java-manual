@@ -265,3 +265,12 @@ public class ProfileController {
   }
 }
 ```
+27. Maven 项目使用 JUnit 5
+```xml
+<dependency>
+  <groupId>org.junit.jupiter</groupId>
+  <artifactId>junit-jupiter</artifactId>
+  <version>5.11.1</version>
+  <scope>test</scope>
+</dependency>
+```
