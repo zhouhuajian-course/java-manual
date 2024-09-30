@@ -265,7 +265,7 @@ public class ProfileController {
   }
 }
 ```
-27. Maven 项目使用 JUnit 5
+27. Maven 项目使用 JUnit 5 `junit-jupiter`
 ```xml
 <dependency>
   <groupId>org.junit.jupiter</groupId>
