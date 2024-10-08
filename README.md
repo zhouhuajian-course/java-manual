@@ -265,7 +265,7 @@ public class ProfileController {
   }
 }
 ```
-27. `JUnit 5` 测试类都是没有 `main` 方法，这说明，启动类是 `JUnit` 或 `IDE` 提供的启动类，需要被测试的测试类，会被 `JUnit` 解析，拿到里面的所有测试用例，然后执行，收集测试报告。例如：执行一个测试类里面所有测试用例 `jdk-21.0.4\bin\java.exe ... com.intellij.rt.junit.JUnitStarter -junit5 demo.TestCalculator` 例如：执行一个测试类的某个测试用例 `C:\Users\zhouhuajian\Desktop\software\jdk-21.0.4\bin\java.exe ... com.intellij.rt.junit.JUnitStarter -junit5 demo.TestCalculator,testAdd`
+27. `JUnit 5` 测试类都是没有 `main` 方法，这说明，启动类是 `JUnit` 或 `IDE` 提供的启动类，需要被测试的测试类，会被 `JUnit` 解析，拿到里面的所有测试用例，然后执行，收集测试报告。例如：执行一个测试类里面所有测试用例 `jdk-21.0.4\bin\java.exe ... com.intellij.rt.junit.JUnitStarter -junit5 demo.TestCalculator` 例如：执行一个测试类的某个测试用例 `C:\Users\zhouhuajian\Desktop\software\jdk-21.0.4\bin\java.exe ... com.intellij.rt.junit.JUnitStarter -junit5 demo.TestCalculator,testAdd`。当然运行 `test` 下的所有测试用例，或某个 `package` 下的所有测试用例，`JUnitStarter` 后面的参数会有所不同，但原理都类似。
 28. `JUnit` 测试类，不需要加 `public`，测试用例也不需要加 `public`，测试用例的返回值是 `void`。可以在类，右键 生成 Test，快速生成这个类的测试类。
 ```java
 package demo;
