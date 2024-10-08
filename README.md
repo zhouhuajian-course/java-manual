@@ -265,4 +265,99 @@ public class ProfileController {
   }
 }
 ```
-27. Maven 项目使用 JUnit 5  TODO 依赖怎么加
+27. `JUnit 5` 测试类都是没有 `main` 方法，这说明，启动类是 `JUnit` 或 `IDE` 提供的启动类，需要被测试的测试类，会被 `JUnit` 解析，拿到里面的所有测试用例，然后执行，收集测试报告。例如：执行一个测试类里面所有测试用例 `jdk-21.0.4\bin\java.exe ... com.intellij.rt.junit.JUnitStarter -junit5 demo.TestCalculator` 例如：执行一个测试类的某个测试用例 `C:\Users\zhouhuajian\Desktop\software\jdk-21.0.4\bin\java.exe ... com.intellij.rt.junit.JUnitStarter -junit5 demo.TestCalculator,testAdd`
+28. `JUnit` 测试类，不需要加 `public`，测试用例也不需要加 `public`，测试用例的返回值是 `void`。可以在类，右键 生成 Test，快速生成这个类的测试类。
+```java
+package demo;
+
+public class Calculator {
+  public static int add(int a, int b) {
+    return a + b;
+  }
+
+  public static int minus(int a, int b) {
+    return a - b;
+  }
+}
+```
+```java
+package demo;
+
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+class TestCalculator {
+  @Test
+  void testAdd() {
+    int res = Calculator.add(1, 2);
+    assertEquals(res, 3);
+  }
+
+  @Test
+  void testMinus() {
+    int res = Calculator.minus(3, 1);
+    assertEquals(res, 2);
+  }
+}
+```
+29. JUnit 扩展 当测试方法有多个参数要注入时，`resolveParameter()` 会被调用多次，每次调用都是表示一个要注入的参数，并不是一次提供所有要注入的参数；这点很重要。
+```java
+package demo;
+
+public class Calculator {
+  public static int add(int a, int b) {
+    return a + b;
+  }
+
+  public static int minus(int a, int b) {
+    return a - b;
+  }
+}
+```
+```java
+package demo;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+@ExtendWith(CalculatorExtension.class)
+class TestCalculator {
+  @Test
+  void testAdd(int randomInt1, Integer randomInt2) {
+    int res = Calculator.add(randomInt1, randomInt2);
+    assertEquals(res, randomInt1 + randomInt2);
+  }
+}
+```
+```java
+package demo;
+
+import org.junit.jupiter.api.extension.ExtensionContext;
+import org.junit.jupiter.api.extension.ParameterContext;
+import org.junit.jupiter.api.extension.ParameterResolutionException;
+import org.junit.jupiter.api.extension.ParameterResolver;
+
+import java.util.Random;
+
+public class CalculatorExtension implements ParameterResolver {
+  @Override
+  public boolean supportsParameter(ParameterContext parameterContext, ExtensionContext extensionContext) throws ParameterResolutionException {
+    return true;
+  }
+
+  @Override 
+  public Object resolveParameter(ParameterContext parameterContext, ExtensionContext extensionContext) throws ParameterResolutionException {
+    Class<?> type = parameterContext.getParameter().getType();
+    if (int.class.equals(type)) {
+      return new Random().nextInt();
+    } else if (java.lang.Integer.class.equals(type)) {
+      return new Random().nextInt();
+    } else {
+      return 0;
+    }
+  }
+}
+```
